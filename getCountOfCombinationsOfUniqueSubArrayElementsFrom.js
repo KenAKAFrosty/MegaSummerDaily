@@ -1,3 +1,48 @@
+
+function getCountOfCombinationsOfUniqueSubArrayElementsFrom(arrayOfArrays) {
+  let arrayOfUniques = getArrayOfSetsFrom(arrayOfArrays);
+  let totalProduct = 1;
+  arrayOfUniques.forEach(e => totalProduct *= e.size);
+  return totalProduct;
+}
+
+function getArrayOfSetsFrom(arrayOfArrays){ 
+  return arrayOfArrays.map(e => new Set(e))
+}
+
+
+
+
+
+
+
+
+
+// function getCopyWithSubArraysThatHaveNoDuplicates(arrayOfArrays) {
+//   return arrayOfArrays.reduce((rebuiltArray, subArray) => {
+//     let newSubArray = getCopyWithNoDuplicateElements(subArray);
+//     rebuiltArray.push(newSubArray);
+//     return rebuiltArray;
+//   }, []);
+// }
+
+// function getCopyWithNoDuplicateElements(array) {
+//   return array.reduce((uniqueElementsArray, element) => {
+//     if (!uniqueElementsArray.includes(element)) {
+//       uniqueElementsArray.push(element);
+//     }
+//     return uniqueElementsArray;
+//   }, []);
+// }
+
+
+
+
+
+
+
+
+
 /*
 Return the number of unique arrays that can be formed by picking exactly one element from each subarray.
 
@@ -17,31 +62,30 @@ solve([[1,2,3],[3,4,6,6,7],[8,9,10,12,5,6]]),72)
 - Multiply the length of each input by each other and return that result
 */
 
-function getCountOfCombinationsOfUniqueSubArrayElementsFrom(arrayOfArrays) {
-  let arrayOfUniques = getCopyWithSubArraysThatHaveNoDuplicates(arrayOfArrays);
-  return arrayOfUniques.reduce((totalProduct, arrayElement) => totalProduct *= arrayElement.length,1)
+
+
+
+function arrCombinations(arr){ 
+  return arr.map(s => new Set(s).size).reduce((a,c)=> a*c,1)
 }
 
-function getCopyWithSubArraysThatHaveNoDuplicates(arrayOfArrays) {
-  return arrayOfArrays.reduce((rebuiltArray, subArray) => {
-    let newSubArray = getCopyWithNoDuplicateElements(subArray);
-    rebuiltArray.push(newSubArray);
-    return rebuiltArray;
-  }, []);
-}
 
-function getCopyWithNoDuplicateElements(array) {
-  return array.reduce((uniqueElementsArray, element) => {
-    if (!uniqueElementsArray.includes(element)) {
-      uniqueElementsArray.push(element);
-    }
-    return uniqueElementsArray;
-  }, []);
-}
 
+
+console.time("multi function");
 console.log(
   getCountOfCombinationsOfUniqueSubArrayElementsFrom([[1,2],[4],[5,6]]),4,
   getCountOfCombinationsOfUniqueSubArrayElementsFrom([[1,2],[4,4],[5,6,6]]),4,
   getCountOfCombinationsOfUniqueSubArrayElementsFrom([[1,2],[3,4],[5,6]]),8,
   getCountOfCombinationsOfUniqueSubArrayElementsFrom([[1,2,3],[3,4,6,6,7],[8,9,10,12,5,6]]),72,
 )
+console.timeEnd("multi function");
+
+console.time("chained array");
+console.log(
+  arrCombinations([[1,2],[4],[5,6]]),4,
+  arrCombinations([[1,2],[4,4],[5,6,6]]),4,
+  arrCombinations([[1,2],[3,4],[5,6]]),8,
+  arrCombinations([[1,2,3],[3,4,6,6,7],[8,9,10,12,5,6]]),72,
+)
+console.timeEnd("chained array");
