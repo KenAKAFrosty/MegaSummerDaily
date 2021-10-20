@@ -1,7 +1,7 @@
 
 function getNthSmallestNumber(arrayOfNumbers, n) {
   if (!Array.isArray(arrayOfNumbers)) return null;
-  if (!Number.isInteger(n)) return null;
+  if (!Number.isInteger( n )) return null;
   if (containsNonNumbers(arrayOfNumbers)) return null;
   if (arrayOfNumbers.length < 3) return null;
   let ascendingArray = arrayOfNumbers.sort( (a,b) => a-b)
