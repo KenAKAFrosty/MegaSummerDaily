@@ -1,8 +1,7 @@
-//Parenthetical code is ( if that character doesn't repeat in the original string, ) if it does. 
+//Parenthetical code is '(' for characters that don't repeat in the original string, ')' for characters that do.
 function getParentheticalCodeFrom(str) {
   if (typeof str != "string") return null;
-  let lowercaseStr = str.toLowerCase()
-  return convertToParentheticalCode(lowercaseStr);
+  return convertToParentheticalCode(str.toLowerCase());
 }
 
 
