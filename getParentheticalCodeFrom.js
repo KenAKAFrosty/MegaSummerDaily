@@ -4,20 +4,16 @@ function getParentheticalCodeFrom(str) {
   return convertToParentheticalCode(str.toLowerCase());
 }
 
-
-function convertToParentheticalCode(lowercaseStr){ 
-    let returnStr = "";
-    for (let i = 0; i < lowercaseStr.length; i++) {
-        const char = lowercaseStr[i];
-        if (lowercaseStr.indexOf(char) === lowercaseStr.lastIndexOf(char)) {
-          returnStr += "(";
-        } else {
-          returnStr += ")";
-        }
-      }
-    return returnStr
+function convertToParentheticalCode(lowercaseStr) {
+  let returnStr = "";
+  for (let i = 0; i < lowercaseStr.length; i++) {
+    const char = lowercaseStr[i];
+    if (lowercaseStr.indexOf(char) === lowercaseStr.lastIndexOf(char))
+      returnStr += "(";
+    else returnStr += ")";
+  }
+  return returnStr;
 }
-
 
 function test() {
   console.log(
