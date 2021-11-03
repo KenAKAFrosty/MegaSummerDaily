@@ -1,18 +1,13 @@
 function getArrayDifference(mainArray, comparisonArray){ 
-    return mainArray.filter(e=>{ 
-        let matched = false;
-        comparisonArray.forEach(element => {
-            if (element == e)
-                matched = true;
-        });
-        return !matched
-    })
+    let comparisonObj = {};
+    comparisonArray.forEach(e => comparisonObj[e] = e);
+    return mainArray.filter(e => !comparisonObj[e] );
 }
 
-
-
-
-console.log( getArrayDifference( [1,2,2,2,2,2,2,2,3,4,5],[1,2] ) )
+console.log( 
+    getArrayDifference( [0,1,2,2,2,2,2,2,2,3,4,5],[0,1,2] ),
+    getArrayDifference( [1,2,2,2,3],[2] )
+)
 
 
 /*
