@@ -2,14 +2,13 @@
 function getArrayOfLettersThatRepeatEqualToTheAverageLengthOf(repeatingLettersArray){ 
     if (!Array.isArray(repeatingLettersArray))
         return null;
-    const averageRepeatCount = getAverageRepeatCount(repeatingLettersArray);
-    return repeatingLettersArray.map(letters => letters[0].repeat(averageRepeatCount) );
+    const avgNumOfTimesRepeated = getAvgNumOfTimesRepeated(repeatingLettersArray);
+    return repeatingLettersArray.map(letters => letters[0].repeat(avgNumOfTimesRepeated) );
 }
 
-
-function getAverageRepeatCount(repeatingLettersArray){ 
-    const sum = repeatingLettersArray.reduce( (sum,e) => sum += e.length, 0);
-    return Math.round( sum / repeatingLettersArray.length );
+function getAvgNumOfTimesRepeated(arrayOfRepeatingLetters){ 
+    const sum = arrayOfRepeatingLetters.reduce( (sum,e) => sum += e.length, 0);
+    return Math.round( sum / arrayOfRepeatingLetters.length );
 }
 
 
