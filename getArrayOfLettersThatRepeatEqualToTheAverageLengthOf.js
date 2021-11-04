@@ -1,20 +1,23 @@
 
-
 function getArrayOfLettersThatRepeatEqualToTheAverageLengthOf(repeatingLettersArray){ 
     if (!Array.isArray(repeatingLettersArray))
         return null;
     const averageRepeatCount = getAverageRepeatCount(repeatingLettersArray);
-    const averageRepeatArray = repeatingLettersArray.map(e =>{ 
-        const lettersArray = Array(averageRepeatCount).fill(e[0]);
-        return lettersArray.join('');
-    })
-    return averageRepeatArray
+    return repeatingLettersArray.map(letters => letters[0].repeat(averageRepeatCount) );
 }
 
+
 function getAverageRepeatCount(repeatingLettersArray){ 
-    const sum = repeatingLettersArray.reduce((sum,e) => sum += e.length, 0);
+    const sum = repeatingLettersArray.reduce( (sum,e) => sum += e.length, 0);
     return Math.round( sum / repeatingLettersArray.length );
 }
+
+
+
+
+
+
+
 
 function areEqual(array1, array2){ 
     if (array1.length != array2.length)
@@ -42,6 +45,9 @@ console.log(areEqual(
         ['aa', 'bb', 'ddd', 'eee'] ), 
     ['aaa', 'bbb', 'ddd', 'eee'] )
 )
+
+
+
 /*
 Given an array of strings of the same letter type. Return a new array, which will differ in that the length of each element is equal to the average length of the elements of the previous array.
 
