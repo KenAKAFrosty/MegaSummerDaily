@@ -1,12 +1,12 @@
 function removeAllDuplicateConsecutiveCharsFrom(arrayOfStrings) { 
-    return arrayOfStrings.map( str => removeDuplicateConsecutiveChars(str) )
+    return arrayOfStrings.map( str => removeDuplicateConsecutiveChars(str) );
 }
 
 function removeDuplicateConsecutiveChars(string){ 
-    const filteredArrayOfChars = string.split('').filter((thisChar, index, array) => { 
-        const nextChar = array[index+1];
-        return (thisChar !== nextChar)
-    })
+    const filteredArrayOfChars = [ ... string ].filter( (thisChar, index, stringArray) => { 
+        const nextChar = stringArray[index + 1];
+        return (thisChar !== nextChar);
+    });
     return filteredArrayOfChars.join('');
 }
 
