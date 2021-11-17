@@ -1,0 +1,23 @@
+{
+  "name": "megasummerdaily",
+  "version": "1.0.0",
+  "description": "My responses to LearnWithLeon / 100devs Mega Summer Daily coding challenges",
+  "main": "getArrayDifference.js",
+  "type":"module",
+  "scripts": {
+    "test": "jest --env=node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KenAKAFrosty/MegaSummerDaily.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KenAKAFrosty/MegaSummerDaily/issues"
+  },
+  "homepage": "https://github.com/KenAKAFrosty/MegaSummerDaily#readme",
+  "dependencies": {
+    "jest": "^27.3.1"
+  }
+}
